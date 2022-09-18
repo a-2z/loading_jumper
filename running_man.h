@@ -1,19 +1,17 @@
 #include <string>
-using namespace std;
+#include <vector>
+#include <tuple>
 
-namespace Runner 
+
+enum GridSize {SMALL, MEDIUM, LARGE}; 
+
+class RunningMan 
 {
-    class RunningMan 
-    {
-        public:
-            RunningMan(string );
-            string getRunner();
-
-        private:
-             running_modes[];
-
-            void load_animations();
-            
-
-    }
-}
+    public:
+        RunningMan(std::string animationFile, GridSize);  
+        std::tuple<int, int> & getSpriteDims();
+    private:
+        std::vector<std::string> running_modes;
+        std::string getRunnerState();
+        void load_animations();
+};
